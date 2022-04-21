@@ -13,4 +13,4 @@ jobs:
 
       - name: Debug
         run: |
-          echo "${{ github.ref }}"
+          python src/test.py
