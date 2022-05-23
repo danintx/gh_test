@@ -9,7 +9,7 @@ on:
 jobs:
   prod_job:
     name: Test Job
-    environment: Test
+    # environment: Test
     permissions:
       id-token: write
       contents: read
