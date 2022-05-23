@@ -3,16 +3,26 @@ on:
   push:
     branches:
       - main
+      - muck-with-env
   workflow_dispatch:
 
 jobs:
   prod_job:
     name: Test Job
-    runs-on: ubuntu-latest
     environment: Test
+    permissions:
+      id-token: write
+      contents: read
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.ROLETOASSUME }}
+          aws-region: us-west-2
 
       - name: Debug
         run: |
