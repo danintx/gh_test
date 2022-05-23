@@ -1,21 +1,19 @@
-name: Test Workflow
+name: Env Workflow
 on:
   push:
-  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
-  test_job:
+  prod_job:
     name: Test Job
     runs-on: ubuntu-latest
+    environment: Test
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Debug
-        run: |
-          python src/test.py
-
-      - name: Debug Again
         run: |
           python src/test.py
