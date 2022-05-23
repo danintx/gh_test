@@ -21,7 +21,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: ${{ secrets.ROLETOASSUME }}
+          # role-to-assume: ${{ secrets.ROLETOASSUME }}
+          role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT }}:role/${{ secret.ROLE_NAME}}
           aws-region: us-west-2
 
       - name: Debug
