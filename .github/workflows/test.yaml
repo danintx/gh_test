@@ -15,3 +15,7 @@ jobs:
       - name: Debug
         run: |
           python src/test.py
+
+      - name: Debug Again
+        run: |
+          python src/test.py
