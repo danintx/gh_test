@@ -3,13 +3,13 @@ on:
   push:
     branches:
       - main
+      - muck-with-env
   workflow_dispatch:
 
 jobs:
   prod_job:
     name: Test Job
     runs-on: ubuntu-latest
-    environment: Test
     steps:
       - name: Checkout
         uses: actions/checkout@v2
