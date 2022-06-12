@@ -9,7 +9,7 @@ on:
 jobs:
   prod_job:
     name: Test Job
-    environment: Test
+    # environment: Test
     permissions:
       id-token: write
       contents: read
@@ -21,7 +21,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: ${{ secrets.ROLETOASSUME }}
+          # role-to-assume: ${{ secrets.ROLETOASSUME }}
+          role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT }}:role/${{ secrets.ROLE_NAME }}
           aws-region: us-west-2
 
       - name: Debug
